@@ -64,6 +64,26 @@ public class MyTimetable {
         }
     }
 
+    // Option 2: displays all the courses the student is currently enrolled in.
+    private void showCoursesEnrolled() {
+        List<Course> coursesEnrolled = student.getCoursesEnrolled();
+
+        if (coursesEnrolled.isEmpty()) {
+            System.out.println("You don't have any courses enrolled.");
+            return;
+        }
+
+        System.out.println("--------------------------------------------------------------------------------");
+        System.out.println("You have enrolled into the following course(s):");
+        System.out.println("--------------------------------------------------------------------------------");
+
+        int ind = 1;
+        for (Course course : coursesEnrolled) {
+            System.out.println(" " + ind + ") " + course);
+            ind += 1;
+        }
+    }
+
     public static void main(String[] args) {
         MyTimetable app = new MyTimetable();
         app.run();
@@ -91,7 +111,7 @@ public class MyTimetable {
                     searchByKeyAndEnroll();
                     break;
                 case "2":
-                    System.out.println("This option is not implemented yet.");
+                    showCoursesEnrolled();
                     break;
                 case "3":
                     System.out.println("This option is not implemented yet.");
