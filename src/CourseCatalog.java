@@ -57,6 +57,20 @@ public class CourseCatalog {
         return copy;
     }
 
+    // Returns all courses whose name contains the keyword
+    public List<Course> searchByKeyword(String keyword) {
+        List<Course> matchedCourses = new ArrayList<>();
+        String lower = keyword.toLowerCase();
+
+        for (Course course : courses) {
+            String name = course.getCourseName().toLowerCase();
+            if (name.contains(lower)) {
+                matchedCourses.add(course);
+            }
+        }
+        return matchedCourses;
+    }
+
     public int size() {
         return courses.size();
     }
