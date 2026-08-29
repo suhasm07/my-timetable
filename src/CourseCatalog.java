@@ -10,6 +10,7 @@ public class CourseCatalog {
     private List<Course> courses;
 
     public CourseCatalog() {
+
         this.courses = new ArrayList<>();
     }
 

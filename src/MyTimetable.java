@@ -78,10 +78,37 @@ public class MyTimetable {
         System.out.println("--------------------------------------------------------------------------------");
 
         int ind = 1;
-        for (Course course : coursesEnrolled) {
-            System.out.println(" " + ind + ") " + course);
+        for (Course c : coursesEnrolled) {
+            System.out.println(" " + ind + ") " + c);
             ind += 1;
         }
+    }
+
+    // Option 3: Allows a user to withdraw from a course if they are enrolled
+    public void withdrawCourse() {
+        List<Course> coursesEnrolled = student.getCoursesEnrolled();
+
+        if (coursesEnrolled.isEmpty()) {
+            System.out.println("You don't have any courses enrolled.");
+            return;
+        }
+
+        System.out.println("--------------------------------------------------------------------------------");
+        System.out.println("Please choose a course to withdraw: ");
+        System.out.println("--------------------------------------------------------------------------------");
+
+        int ind = 1;
+
+        for(Course c: coursesEnrolled) {
+            System.out.println(" " + ind + ") " + c);
+            ind += 1;
+        }
+        System.out.print("Please select: ");
+        int input =  Integer.parseInt(scanner.nextLine().trim());
+
+        Course courseToWithdraw = coursesEnrolled.get(input-1);
+        student.withdrawCourse(courseToWithdraw);
+        System.out.println("You have withdrawn from " + courseToWithdraw.getCourseName() + "!");
     }
 
     public static void main(String[] args) {
@@ -114,7 +141,7 @@ public class MyTimetable {
                     showCoursesEnrolled();
                     break;
                 case "3":
-                    System.out.println("This option is not implemented yet.");
+                    withdrawCourse();
                     break;
                 case "4":
                     flag = false;

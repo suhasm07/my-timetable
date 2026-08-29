@@ -26,4 +26,9 @@ public class Student {
         List<Course> copy = new ArrayList<>(coursesEnrolled);
         return copy;
     }
+
+    // Withdraws/removes a course from the coursesEnrolled list
+    public void  withdrawCourse(Course course) {
+        coursesEnrolled.remove(course);
+    }
 }

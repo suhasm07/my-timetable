@@ -67,7 +67,7 @@ public abstract class Course {
 
         String endTime = getEndTime();
 
-        return String.format("%-25s %-12s %s %s-%s",
+        return String.format("%-30s %-16s %s %s-%s",
                 courseName, getDeliveryMode(), shortDay, timeOfLecture, endTime);
     }
 }
